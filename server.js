@@ -8,6 +8,8 @@ import userRoutes from './routes/userRoutes.js';
 dotenv.config();
 
 const app = express();
+
+// Enable CORS for all origins (dev-friendly)
 app.use(cors());
 
 // Middleware to parse JSON bodies
