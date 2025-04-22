@@ -3,6 +3,7 @@ import User from "../models/User.js";
 
 export const createUser = async (req, res) => {
     try {
+        console.log(req.body);
         const { name, email, age } = req.body;
         const newUser = new User({ name, email, age });
         const savedUser = await newUser.save();
@@ -14,17 +15,11 @@ export const createUser = async (req, res) => {
 
 export const getUsers = async (req, res) => { 
     try {
-        const user = [{
-            name: "Mutti u rehman",
-            email: "mutti.mughal@gmail.com",
-            age: 32
-        }];
 
-        res.status(200).json(user);
-
-        // const users = await User.find();
-    //     res.json(users);
+        const users = await User.find();
+        res.json(users);
     } catch (error) {
+        console.error("Error fetching users:", error);
         res.status(500).json({ message: error.message });
     }
 }

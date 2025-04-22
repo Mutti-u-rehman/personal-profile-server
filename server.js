@@ -9,7 +9,13 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
+
+// Middleware to parse JSON bodies
 app.use(express.json());
+
+// Middleware to parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
