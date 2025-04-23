@@ -25,11 +25,11 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
     try {
         let mongoUri = process.env.MONGO_URI;
-        if (!mongoUri) {
-            console.log('No MONGO_URI found. Starting in-memory MongoDB instance...');
-            const mongod = await MongoMemoryServer.create();
-            mongoUri = mongod.getUri();
-        }
+        // if (!mongoUri) {
+        //     console.log('No MONGO_URI found. Starting in-memory MongoDB instance...');
+        //     const mongod = await MongoMemoryServer.create();
+        //     mongoUri = mongod.getUri();
+        // }
         await mongoose.connect(mongoUri, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
