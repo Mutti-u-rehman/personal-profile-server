@@ -30,10 +30,7 @@ const startServer = async () => {
         //     const mongod = await MongoMemoryServer.create();
         //     mongoUri = mongod.getUri();
         // }
-        await mongoose.connect(mongoUri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(mongoUri);
         console.log('MongoDB connected');
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
     } catch (err) {
